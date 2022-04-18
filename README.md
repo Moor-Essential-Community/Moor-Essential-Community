@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Moor-Essential-Community
 - 👀 I’m interested in Philanthropy
-- 🌱 I’m currently learning DeFi, Web 3.0, NFT's, and DAO's
+- 🌱 I’m currently learning Syntax-Grammar, Contract-Law, GameFi, DeFi, Web 3.0, NFT's, and DAO's
 - 💞️ I’m looking to collaborate on projects that produce, promote, and protect the generational wealth for humanity.
 - 📫 How to reach me: https://linktr.ee/moor_essential_community 
 

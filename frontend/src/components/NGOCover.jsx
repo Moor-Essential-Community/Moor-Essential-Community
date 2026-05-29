@@ -1,128 +1,207 @@
+// Replace ngoCoverImage with your actual image import once uploaded
+// e.g. import ngoCoverImage from "../assets/ngo-cover.jpg";
+const ngoCoverImage = null; // set to your imported image
+
 const GOLD = "#d4a017";
-const DARK = "#0a0a0a";
+const GOLD2 = "#f5a623";
 
 export default function NGOCover() {
   return (
     <div style={{
-      width: "816px",
+      width: "100%",
+      maxWidth: "816px",
       minHeight: "1056px",
-      background: DARK,
+      background: "#0a0a0a",
       color: "#e8e8e8",
       fontFamily: "Georgia, serif",
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "space-between",
-      padding: "80px 60px",
+      margin: "0 auto",
       position: "relative",
       overflow: "hidden",
-      border: `2px solid ${GOLD}`,
-      margin: "0 auto",
+      boxShadow: "0 32px 80px rgba(0,0,0,0.8)",
     }}>
-      {/* Corner accents */}
-      {["top-left", "top-right", "bottom-left", "bottom-right"].map((pos) => (
-        <div key={pos} style={{
-          position: "absolute",
-          top: pos.includes("top") ? 16 : "auto",
-          bottom: pos.includes("bottom") ? 16 : "auto",
-          left: pos.includes("left") ? 16 : "auto",
-          right: pos.includes("right") ? 16 : "auto",
-          width: 48, height: 48,
-          borderTop: pos.includes("top") ? `2px solid ${GOLD}` : "none",
-          borderBottom: pos.includes("bottom") ? `2px solid ${GOLD}` : "none",
-          borderLeft: pos.includes("left") ? `2px solid ${GOLD}` : "none",
-          borderRight: pos.includes("right") ? `2px solid ${GOLD}` : "none",
-        }} />
-      ))}
 
-      {/* Background watermark */}
+      {/* ── HERO IMAGE AREA ── */}
       <div style={{
-        position: "absolute", top: "50%", left: "50%",
-        transform: "translate(-50%, -50%)",
-        fontSize: 300, fontWeight: "bold", color: "rgba(212,160,23,0.03)",
-        pointerEvents: "none", userSelect: "none", letterSpacing: -10,
+        width: "100%",
+        height: 380,
+        position: "relative",
+        overflow: "hidden",
+        flexShrink: 0,
       }}>
-        DAO
-      </div>
+        {ngoCoverImage ? (
+          <img
+            src={ngoCoverImage}
+            alt="MECCA NGO"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+          />
+        ) : (
+          <div style={{
+            width: "100%", height: "100%",
+            background: "linear-gradient(135deg, #001400 0%, #002200 40%, #0a0a0a 100%)",
+            display: "flex", flexDirection: "column",
+            alignItems: "center", justifyContent: "center", gap: 12,
+          }}>
+            <div style={{
+              width: 80, height: 80, borderRadius: "50%",
+              border: `2px dashed rgba(212,160,23,0.4)`,
+              display: "flex", alignItems: "center", justifyContent: "center",
+            }}>
+              <span style={{ fontSize: 28, opacity: 0.4 }}>📷</span>
+            </div>
+            <span style={{ fontSize: 12, color: "rgba(212,160,23,0.4)", letterSpacing: 3, textTransform: "uppercase" }}>
+              Your Photo Here
+            </span>
+          </div>
+        )}
 
-      {/* Top */}
-      <div style={{ textAlign: "center", marginTop: 20 }}>
+        {/* Gradient fade into dark background */}
         <div style={{
-          display: "inline-flex", alignItems: "center", gap: 16,
-          padding: "8px 32px", border: `1px solid rgba(212,160,23,0.4)`,
-          borderRadius: 2, marginBottom: 32,
+          position: "absolute", bottom: 0, left: 0, right: 0, height: "60%",
+          background: "linear-gradient(to bottom, transparent, #0a0a0a)",
+        }} />
+
+        {/* Top bar */}
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0,
+          padding: "20px 32px",
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.7), transparent)",
         }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: GOLD }} />
-          <span style={{ fontSize: 10, letterSpacing: 6, color: GOLD, textTransform: "uppercase" }}>
-            Non-Governmental Organisation
+          <span style={{ fontSize: 10, letterSpacing: 5, color: GOLD, textTransform: "uppercase" }}>
+            Moor Essential Community
           </span>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: GOLD }} />
+          <div style={{
+            padding: "4px 14px",
+            border: `1px solid rgba(212,160,23,0.5)`,
+            borderRadius: 2,
+            fontSize: 9, letterSpacing: 3, color: GOLD, textTransform: "uppercase",
+          }}>
+            Non-Governmental Org
+          </div>
         </div>
 
+        {/* Overlaid title */}
         <div style={{
-          width: 120, height: 120, borderRadius: "50%",
-          border: `2px solid ${GOLD}`,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          margin: "0 auto",
-          background: "rgba(212,160,23,0.06)",
-          flexDirection: "column", gap: 2,
+          position: "absolute", bottom: 28, left: 32, right: 32,
         }}>
-          <span style={{ fontSize: 36, color: GOLD, fontWeight: "bold" }}>M</span>
-          <span style={{ fontSize: 8, letterSpacing: 3, color: GOLD, textTransform: "uppercase" }}>MECCA</span>
+          <div style={{
+            fontSize: 10, letterSpacing: 6, color: GOLD,
+            textTransform: "uppercase", marginBottom: 6,
+          }}>
+            Articles of Association
+          </div>
+          <div style={{
+            fontSize: 52, fontWeight: "bold", lineHeight: 1,
+            color: "#fff", textShadow: "0 2px 20px rgba(0,0,0,0.9)",
+          }}>
+            MOOR <span style={{ color: GOLD }}>ESSENTIAL</span>
+          </div>
+          <div style={{
+            fontSize: 52, fontWeight: "bold", lineHeight: 1,
+            color: "#fff", textShadow: "0 2px 20px rgba(0,0,0,0.9)",
+          }}>
+            COMMUNITY
+          </div>
         </div>
       </div>
 
-      {/* Main title */}
-      <div style={{ textAlign: "center", flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 20 }}>
-        <div style={{ fontSize: 11, letterSpacing: 8, color: "#888", textTransform: "uppercase" }}>
-          Articles of Association
-        </div>
-        <div style={{
-          fontSize: 46, fontWeight: "bold", lineHeight: 1.15, textAlign: "center",
-        }}>
-          MOOR ESSENTIAL<br />
-          <span style={{ color: GOLD }}>COMMUNITY</span>
-        </div>
-        <div style={{ fontSize: 18, color: "#aaa", letterSpacing: 4, textTransform: "uppercase" }}>
-          MECCA.DAO
-        </div>
-        <div style={{ width: 240, height: 1, background: `linear-gradient(to right, transparent, ${GOLD}, transparent)`, margin: "4px auto" }} />
+      {/* ── BODY ── */}
+      <div style={{
+        flex: 1, display: "flex", flexDirection: "column",
+        padding: "32px 40px 40px",
+        borderLeft: `3px solid ${GOLD}`,
+        borderRight: `3px solid ${GOLD}`,
+        gap: 28,
+      }}>
 
-        <div style={{ marginTop: 32, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, width: "100%" }}>
+        {/* Gold rule */}
+        <div style={{
+          height: 1,
+          background: `linear-gradient(to right, ${GOLD}, ${GOLD2}, ${GOLD})`,
+        }} />
+
+        {/* Subtitle row */}
+        <div style={{
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+        }}>
+          <div>
+            <div style={{ fontSize: 18, letterSpacing: 4, color: "#ccc", textTransform: "uppercase" }}>
+              Founding Document
+            </div>
+            <div style={{ fontSize: 11, color: "#555", letterSpacing: 2, marginTop: 4, textTransform: "uppercase" }}>
+              Philanthropic Mandate &amp; Operational Structure
+            </div>
+          </div>
+          {/* Seal circle */}
+          <div style={{
+            width: 72, height: 72, borderRadius: "50%",
+            border: `2px solid ${GOLD}`,
+            background: "rgba(212,160,23,0.08)",
+            display: "flex", flexDirection: "column",
+            alignItems: "center", justifyContent: "center",
+          }}>
+            <span style={{ fontSize: 26, color: GOLD, fontWeight: "bold", lineHeight: 1 }}>M</span>
+            <span style={{ fontSize: 7, color: GOLD, letterSpacing: 2, textTransform: "uppercase" }}>Seal</span>
+          </div>
+        </div>
+
+        {/* Quote block */}
+        <div style={{
+          padding: "24px 32px",
+          borderLeft: `3px solid ${GOLD}`,
+          background: "rgba(212,160,23,0.04)",
+        }}>
+          <p style={{
+            fontSize: 14, color: "#ccc", lineHeight: 1.9,
+            fontStyle: "italic", margin: 0,
+          }}>
+            "Committed to the upliftment, education, and sovereign advancement
+            of the Moor Essential Community through decentralized,
+            transparent, and immutable governance — preserved on-chain, forever."
+          </p>
+        </div>
+
+        {/* Info grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
           {[
-            { label: "Purpose", value: "Philanthropic" },
-            { label: "Structure", value: "DAO Governed" },
-            { label: "Registry", value: "On-Chain" },
+            { label: "Organisation Type", value: "Non-Governmental Org" },
+            { label: "Governed By", value: "MECCA.DAO — On-Chain" },
+            { label: "Purpose", value: "Philanthropic Advancement" },
+            { label: "Document Version", value: "Version 1.0" },
           ].map(({ label, value }) => (
             <div key={label} style={{
-              border: `1px solid rgba(212,160,23,0.25)`,
-              borderRadius: 4, padding: "16px 12px", textAlign: "center",
-              background: "rgba(212,160,23,0.04)",
+              padding: "14px 18px",
+              border: `1px solid rgba(212,160,23,0.2)`,
+              borderRadius: 3,
+              background: "rgba(255,255,255,0.02)",
             }}>
-              <div style={{ fontSize: 16, fontWeight: "bold", color: GOLD, marginBottom: 4 }}>{value}</div>
-              <div style={{ fontSize: 10, color: "#666", letterSpacing: 3, textTransform: "uppercase" }}>{label}</div>
+              <div style={{ fontSize: 10, color: "#555", letterSpacing: 3, textTransform: "uppercase", marginBottom: 6 }}>
+                {label}
+              </div>
+              <div style={{ fontSize: 14, color: "#e0e0e0", fontWeight: "bold" }}>
+                {value}
+              </div>
             </div>
           ))}
         </div>
 
-        <div style={{ marginTop: 24, padding: "20px 40px", border: `1px solid rgba(212,160,23,0.2)`, borderRadius: 4, maxWidth: 480, textAlign: "center" }}>
-          <p style={{ fontSize: 13, color: "#bbb", lineHeight: 1.8, fontStyle: "italic", margin: 0 }}>
-            "Committed to the upliftment, education, and sovereign advancement
-            of the Moor Essential Community through decentralized,
-            transparent, and immutable governance."
-          </p>
+        <div style={{ flex: 1 }} />
+
+        {/* Footer */}
+        <div>
+          <div style={{ height: 1, background: `linear-gradient(to right, ${GOLD}, transparent)`, marginBottom: 16 }} />
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 10, color: "#444", letterSpacing: 2, textTransform: "uppercase" }}>
+            <span>MECCA.DAO</span>
+            <span>Confidential &amp; Proprietary</span>
+            <span>{new Date().getFullYear()}</span>
+          </div>
         </div>
       </div>
 
-      {/* Bottom */}
-      <div style={{ textAlign: "center", width: "100%" }}>
-        <div style={{ width: "100%", height: 1, background: `linear-gradient(to right, transparent, ${GOLD}, transparent)`, marginBottom: 24 }} />
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: "#666", letterSpacing: 2, textTransform: "uppercase" }}>
-          <span>MECCA.DAO</span>
-          <span>Articles of Association — V1.0</span>
-          <span>{new Date().getFullYear()}</span>
-        </div>
-      </div>
+      {/* Bottom border */}
+      <div style={{ height: 6, background: `linear-gradient(to right, ${GOLD}, ${GOLD2}, ${GOLD})` }} />
     </div>
   );
 }

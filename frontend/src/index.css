@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-mecca-black text-mecca-text font-body;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gold-gradient text-mecca-black font-bold py-2 px-6 rounded-lg
+           hover:opacity-90 transition-all duration-200 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border border-mecca-gold text-mecca-gold font-semibold py-2 px-6 rounded-lg
+           hover:bg-mecca-gold hover:text-mecca-black transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-mecca-card border border-mecca-border rounded-xl p-6;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold text-mecca-gold font-display;
+  }
+
+  .stat-label {
+    @apply text-sm text-mecca-muted uppercase tracking-widest;
+  }
+}

@@ -8,27 +8,29 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
- * @title MECCAToken
- * @notice Utility and ecosystem token for MECCA.DAO.
- * Symbol: MECCA | Max supply: 9,000,000,000 (9 billion).
+ * @title MECToken
+ * @notice Primary governance token for MECCA.DAO.
+ * Symbol: MEC | Max supply: 144,000,000 (144 million).
+ *
+ * 144,000,000 — the number of the sealed elect across traditions;
+ * chosen as the governance token supply to honor sacred numerology.
  */
-contract MECCAToken is ERC20, ERC20Burnable, ERC20Permit, ERC20Votes, Ownable {
-    uint256 public constant MAX_SUPPLY = 9_000_000_000 * 10 ** 18;
+contract MECToken is ERC20, ERC20Burnable, ERC20Permit, ERC20Votes, Ownable {
+    uint256 public constant MAX_SUPPLY = 144_000_000 * 10 ** 18;
 
     event TokensMinted(address indexed to, uint256 amount);
 
     constructor(address initialOwner)
-        ERC20("MECCA Ecosystem Token", "MECCA")
-        ERC20Permit("MECCA Token")
+        ERC20("MEC Governance Token", "MEC")
+        ERC20Permit("MEC Governance Token")
         Ownable(initialOwner)
     {}
 
     /**
-     * @notice Mint tokens. Only callable by owner (initially deployer, then DAO Timelock).
-     * @dev Total supply can never exceed MAX_SUPPLY.
+     * @notice Mint MEC tokens. Only callable by owner (DAO Timelock after deployment).
      */
     function mint(address to, uint256 amount) external onlyOwner {
-        require(totalSupply() + amount <= MAX_SUPPLY, "MECCAToken: max supply exceeded");
+        require(totalSupply() + amount <= MAX_SUPPLY, "MECToken: max supply exceeded");
         _mint(to, amount);
         emit TokensMinted(to, amount);
     }

@@ -1,63 +1,91 @@
 # MECCA.DAO — Tokenomics
 
-## $MECCA Token
+## Dual-Token Architecture
+
+MECCA.DAO operates on two complementary tokens with distinct roles:
+
+---
+
+## Token 1 — $MEC (Governance)
 
 | Property | Value |
 |---|---|
-| Name | MECCA Token |
-| Symbol | MECCA |
+| Name | MEC Governance Token |
+| Symbol | MEC |
 | Standard | ERC-20 + ERC20Votes + ERC20Permit |
-| Max Supply | 777,777,777 MECCA |
+| **Max Supply** | **144,000,000 (144 million)** |
 | Decimals | 18 |
-| Network | Ethereum (L1) + Polygon (L2) |
+| Role | On-chain governance votes, proposal creation, DAO control |
 
-The number 777,777,777 was chosen deliberately: in Moorish science, numerology, and many traditions, 7 symbolizes completion, perfection, and divine alignment. The supply is capped permanently — no minting beyond this limit is possible under any governance vote.
+The number **144,000,000** honors sacred numerology across Moorish science, Biblical, and Islamic traditions — the number of the sealed elect, the sovereign people. MEC is the key to the DAO.
+
+### MEC Distribution
+
+| Allocation | % | Amount (MEC) | Vesting |
+|---|---|---|---|
+| Community Treasury | 35% | 50,400,000 | DAO-governed |
+| Founding Members | 15% | 21,600,000 | 4 years, 1-year cliff |
+| Public Distribution | 20% | 28,800,000 | Fair launch / airdrop |
+| Staking Rewards | 20% | 28,800,000 | Emitted over 10 years |
+| Development Fund | 5% | 7,200,000 | 4 years, DAO multisig |
+| Philanthropy Vault | 5% | 7,200,000 | DAO-allocated |
+
+**Total: 100% = 144,000,000 MEC**
 
 ---
 
-## Distribution
+## Token 2 — $MECCA (Ecosystem)
+
+| Property | Value |
+|---|---|
+| Name | MECCA Ecosystem Token |
+| Symbol | MECCA |
+| Standard | ERC-20 + ERC20Votes + ERC20Permit |
+| **Max Supply** | **9,000,000,000 (9 billion)** |
+| Decimals | 18 |
+| Role | Staking rewards, GameFi, DeFi utility, ecosystem participation |
+
+The number **9,000,000,000** represents abundance, universal reach, and economic vitality across the entire community ecosystem. MECCA is the fuel of the network.
+
+### MECCA Distribution
 
 | Allocation | % | Amount (MECCA) | Vesting |
 |---|---|---|---|
-| Community Treasury | 40% | 311,111,111 | Governed by DAO — no lock |
-| Staking Rewards | 25% | 194,444,444 | Emitted over 10 years |
-| Founding Members | 10% | 77,777,778 | 4 years, 1-year cliff |
-| Public Distribution | 15% | 116,666,667 | Fair launch / community airdrop |
-| Philanthropy Vault | 5% | 38,888,889 | DAO-allocated |
-| Development Fund | 5% | 38,888,889 | 4 years, DAO multisig |
+| Staking Rewards Pool | 30% | 2,700,000,000 | Emitted over 15 years |
+| Community Treasury | 25% | 2,250,000,000 | DAO-governed |
+| Public Distribution | 20% | 1,800,000,000 | Fair launch / airdrop |
+| GameFi Rewards | 15% | 1,350,000,000 | Released per module launch |
+| Philanthropy Vault | 5% | 450,000,000 | DAO-allocated |
+| Development Fund | 5% | 450,000,000 | 4 years, DAO multisig |
 
-**Total: 100% = 777,777,777 MECCA**
-
----
-
-## Utility
-
-$MECCA is the engine of MECCA.DAO:
-
-1. **Governance** — Hold and delegate $MECCA to vote on proposals
-2. **Staking** — Stake to earn yield from the rewards pool
-3. **Membership** — Minimum holdings required for certain NFT tier mints
-4. **Treasury Access** — Governance proposals denominated in MECCA
-5. **GameFi (future)** — In-game currency and multiplier for future GameFi modules
+**Total: 100% = 9,000,000,000 MECCA**
 
 ---
 
-## Voting Power
+## Token Interaction
 
-Voting power = delegated $MECCA balance at the snapshot block.
+```
+MEC (Governance)        MECCA (Ecosystem)
+      │                        │
+      ▼                        ▼
+  DAO Votes              Staking Rewards
+  Proposals              GameFi Economy
+  Treasury Control       DeFi Liquidity
+  Protocol Upgrades      Member Incentives
+```
 
-- Tokens must be delegated (to yourself or another) to count as votes
-- Staked tokens retain voting power via delegation
-- Soulbound NFT tier does not multiply voting power directly — but Founding members will have first-mover advantage in proposal creation through early token allocation
+- Governance is conducted with **MEC**
+- Staking, GameFi, and ecosystem rewards are paid in **MECCA**
+- Both tokens are required for full DAO participation
 
 ---
 
-## Inflation Policy
+## No Inflation
 
-**None.** The max supply of 777,777,777 MECCA is a hard cap enforced in the smart contract. No governance action can increase the cap. Staking rewards are pre-funded from the 25% rewards allocation — not newly minted tokens.
+Both token max supplies are hard-capped in their respective smart contracts. No governance action can raise the cap. Reward pools are pre-funded from initial allocations — no new tokens are printed beyond the caps.
 
 ---
 
-## Token Address
+## Token Addresses
 
 *To be published upon mainnet deployment.*

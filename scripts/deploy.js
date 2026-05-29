@@ -5,11 +5,17 @@ async function main() {
   console.log("Deploying MECCA.DAO contracts with:", deployer.address);
   console.log("Balance:", ethers.formatEther(await ethers.provider.getBalance(deployer.address)), "ETH\n");
 
-  // 1. MECCAToken
+  // 1a. MECToken (Governance — 144M supply)
+  const MECToken = await ethers.getContractFactory("MECToken");
+  const mec = await MECToken.deploy(deployer.address);
+  await mec.waitForDeployment();
+  console.log("MECToken (MEC) deployed to:", await mec.getAddress());
+
+  // 1b. MECCAToken (Ecosystem — 9B supply)
   const MECCAToken = await ethers.getContractFactory("MECCAToken");
   const token = await MECCAToken.deploy(deployer.address);
   await token.waitForDeployment();
-  console.log("MECCAToken deployed to:", await token.getAddress());
+  console.log("MECCAToken (MECCA) deployed to:", await token.getAddress());
 
   // 2. MECCATimelockController (2-day delay for mainnet; 60s for testing)
   const minDelay = process.env.NETWORK === "mainnet" ? 2 * 24 * 3600 : 60;
@@ -23,9 +29,9 @@ async function main() {
   await timelock.waitForDeployment();
   console.log("MECCATimelockController deployed to:", await timelock.getAddress());
 
-  // 3. MECCAGovernor
+  // 3. MECCAGovernor — uses MEC as voting token
   const MECCAGovernor = await ethers.getContractFactory("MECCAGovernor");
-  const governor = await MECCAGovernor.deploy(await token.getAddress(), await timelock.getAddress());
+  const governor = await MECCAGovernor.deploy(await mec.getAddress(), await timelock.getAddress());
   await governor.waitForDeployment();
   console.log("MECCAGovernor deployed to:", await governor.getAddress());
 
@@ -65,12 +71,15 @@ async function main() {
   await vault.waitForDeployment();
   console.log("MECCAPhilanthropyVault deployed to:", await vault.getAddress());
 
-  // Transfer MECCAToken ownership to Timelock so governance controls minting
+  // Transfer both token ownerships to Timelock — governance controls all minting
+  await (await mec.transferOwnership(await timelock.getAddress())).wait();
+  console.log("MECToken ownership transferred to Timelock");
   await (await token.transferOwnership(await timelock.getAddress())).wait();
-  console.log("\nMECCAToken ownership transferred to Timelock");
+  console.log("MECCAToken ownership transferred to Timelock");
 
   console.log("\n=== MECCA.DAO Deployment Complete ===");
   console.log({
+    MECToken: await mec.getAddress(),
     MECCAToken: await token.getAddress(),
     MECCATimelockController: await timelock.getAddress(),
     MECCAGovernor: await governor.getAddress(),

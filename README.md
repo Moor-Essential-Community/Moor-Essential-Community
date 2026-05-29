@@ -42,17 +42,14 @@ MECCA.DAO
 
 ---
 
-## Token — $MECCA
+## Dual-Token Model
 
-| Property | Value |
-|---|---|
-| Standard | ERC-20 + ERC20Votes |
-| Max Supply | 777,777,777 MECCA |
-| Decimals | 18 |
-| Governance | Delegation + snapshot voting |
-| Utility | Vote, stake, earn, access tiers |
+| Token | Symbol | Max Supply | Role |
+|---|---|---|---|
+| MEC Governance Token | $MEC | **144,000,000** | Governance votes, proposals, DAO control |
+| MECCA Ecosystem Token | $MECCA | **9,000,000,000** | Staking rewards, GameFi, DeFi utility |
 
-See [docs/TOKENOMICS.md](docs/TOKENOMICS.md) for full distribution.
+See [docs/TOKENOMICS.md](docs/TOKENOMICS.md) for full distribution and vesting details.
 
 ---
 

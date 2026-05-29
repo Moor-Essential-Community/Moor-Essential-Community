@@ -54,16 +54,31 @@ No action bypasses this flow. The Timelock is the sole administrator of all cont
 
 See [TOKENOMICS.md](TOKENOMICS.md) for full detail.
 
-**Total Supply**: 777,777,777 MECCA (fixed maximum; symbolizing completion and perfection)
+MECCA.DAO runs a **dual-token architecture**:
 
-| Allocation | % | Amount | Notes |
-|---|---|---|---|
-| Community Treasury | 40% | 311,111,111 | DAO-controlled |
-| Staking Rewards | 25% | 194,444,444 | Emissions over 10 years |
-| Founding Members | 10% | 77,777,778 | 777 wallets, 4-year vest |
-| Public Distribution | 15% | 116,666,667 | Fair launch / airdrop |
-| Philanthropy Vault | 5% | 38,888,889 | Charitable allocation |
-| Development Fund | 5% | 38,888,889 | 4-year vest, DAO-controlled |
+### $MEC — Governance Token
+**Max Supply: 144,000,000** (sacred number of the sealed elect)
+
+| Allocation | % | Amount (MEC) |
+|---|---|---|
+| Community Treasury | 35% | 50,400,000 |
+| Founding Members | 15% | 21,600,000 |
+| Public Distribution | 20% | 28,800,000 |
+| Staking Rewards | 20% | 28,800,000 |
+| Development Fund | 5% | 7,200,000 |
+| Philanthropy Vault | 5% | 7,200,000 |
+
+### $MECCA — Ecosystem Token
+**Max Supply: 9,000,000,000** (9 billion — abundance for all)
+
+| Allocation | % | Amount (MECCA) |
+|---|---|---|
+| Staking Rewards Pool | 30% | 2,700,000,000 |
+| Community Treasury | 25% | 2,250,000,000 |
+| Public Distribution | 20% | 1,800,000,000 |
+| GameFi Rewards | 15% | 1,350,000,000 |
+| Philanthropy Vault | 5% | 450,000,000 |
+| Development Fund | 5% | 450,000,000 |
 
 ---
 

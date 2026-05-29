@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { to: "/treasury", label: "Treasury" },
   { to: "/membership", label: "Membership" },
   { to: "/philanthropy", label: "Philanthropy" },
+  { to: "/services", label: "Services" },
 ];
 
 export default function Navbar() {

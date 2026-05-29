@@ -6,6 +6,7 @@ import Staking from "./pages/Staking";
 import Treasury from "./pages/Treasury";
 import Membership from "./pages/Membership";
 import Philanthropy from "./pages/Philanthropy";
+import Services from "./pages/Services";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/treasury" element={<Treasury />} />
           <Route path="/membership" element={<Membership />} />
           <Route path="/philanthropy" element={<Philanthropy />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
       </main>
       <footer className="border-t border-mecca-border mt-16 py-8 text-center text-mecca-muted text-sm">
